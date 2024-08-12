@@ -16,6 +16,7 @@ import {
 } from '@chakra-ui/react'
 import { useAuth } from '../auth/AuthContext'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const avatars = [
   {
@@ -171,7 +172,7 @@ export default function Login() {
               Get ready to share your story on our platform!
             </Text>
           </Stack>
-          <Box as={'form'} mt={10}>
+          <Box as={'form'}>
             <Stack spacing={4}>
              
               <Input
@@ -198,6 +199,8 @@ export default function Login() {
                   color: 'gray.500',
                 }}
               />
+
+             <Text textAlign={'end'}>Dont have any account ?  <Text fontWeight={'bold'} _hover={{color:'black'}} as={Link} to={'/register'}>Register</Text></Text>
            
             </Stack>
             <Button

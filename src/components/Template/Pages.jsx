@@ -41,7 +41,6 @@ const PagesTemplate = ({ children, onOpen, isOpen, onClose }) => {
     <HStack
       w="full"
       h="100vh"
-      bg="gray.100"
       p={{ base: 1, md: 10 }}
       display="flex"
       flexDir={{ base: "column", md: "row" }}

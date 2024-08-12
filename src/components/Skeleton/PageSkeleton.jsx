@@ -16,7 +16,6 @@ const PageSkeleton = () => {
     <HStack
       w="full"
       h="100vh"
-      bg="gray.100"
       p={10}
       display={"flex"}
       justifyContent={"center"}
@@ -34,6 +33,8 @@ const PageSkeleton = () => {
         transition="ease-in-out .2s"
         borderRadius="3xl"
         position="relative"
+        border="1px solid"
+        borderColor="gray.300"
       >
         <Sidebar collapse={true} />
       </Flex>
@@ -47,6 +48,8 @@ const PageSkeleton = () => {
         flexDirection="column"
         position="relative"
         maxW={550}
+        border="1px solid"
+        borderColor="gray.300"
         overflowY="auto"
         sx={{
           "&::-webkit-scrollbar": {
@@ -75,6 +78,8 @@ const PageSkeleton = () => {
         justifyContent="space-between"
         transition="ease-in-out .2s"
         borderRadius="3xl"
+        border="1px solid"
+        borderColor="gray.300"
       >
         {/* Additional content for the right sidebar can go here */}
       </Flex>
