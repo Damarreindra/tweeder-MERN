@@ -29,10 +29,12 @@ export default function WithBackgroundImage() {
             <Button
             as={RouterLink}
               to='/login'
-              bg={'blue.400'}
+              bg={'green.400'}
               rounded={'full'}
               color={'white'}
-              _hover={{ bg: 'blue.500' }}>
+              _hover={{ bg: 'green.500',
+              color: 'gray.200'
+              }}>
               Login
             </Button>
             <Button
@@ -41,7 +43,9 @@ export default function WithBackgroundImage() {
               to='/register'
               rounded={'full'}
               color={'white'}
-              _hover={{ bg: 'whiteAlpha.500' }}>
+              _hover={{ bg: 'whiteAlpha.500',
+              color: 'gray.200'
+              }}>
 Register            </Button>
           </Stack>
         </Stack>
