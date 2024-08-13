@@ -62,6 +62,7 @@ function Register() {
     } else if (addUserError) {
       setError(addUserError);
       setEmail("");
+      setUsername("");
     }
   }, [addUserResult, addUserError, navigate]);
 

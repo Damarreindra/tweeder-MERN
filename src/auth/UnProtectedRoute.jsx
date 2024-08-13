@@ -5,7 +5,7 @@ import { useAuth } from './AuthContext';
 const UnProtectedRoute = ({ element: Component, ...rest }) => {
   const { user } = useAuth();
 
-  return !user ? <Navigate to={'/home'}/>:<Outlet/>;
+  return user ? <Navigate to={'/home'}/>:<Outlet/>;
 };
 
 

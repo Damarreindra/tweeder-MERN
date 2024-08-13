@@ -34,11 +34,14 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import { MdOutlineMoreHoriz } from "react-icons/md";
 import Logout from "../Logout/Logout";
 import { FaTrash } from "react-icons/fa";
+import { useAuth } from "../../auth/AuthContext";
 
-function MainCard({ thread, user }) {
+function MainCard({ thread }) {
   const createdAt = moment(thread.createdAt);
   const now = moment();
   const duration = moment.duration(now.diff(createdAt));
+  const {user} = useAuth()
+
 
   const formatDuration = (duration) => {
     if (duration.asSeconds() < 60) {
@@ -138,28 +141,35 @@ function MainCard({ thread, user }) {
           >
             {thread.comments.length}
           </Button>
+            {
+              thread.author._id === user._id ? (
+                <Menu>
+                <MenuButton position={"absolute"} top={2} right={2} variant="ghost">
+                  <IconButton variant={"ghost"} icon={<MdOutlineMoreHoriz />} />
+                </MenuButton>
+                <Portal>
+                  <MenuList>
+                    <MenuItem p={0} m={0}>
+                      <Button
+                     
+                        variant=""
+                        fontSize="sm"
+                        fontWeight={"sm"}
+                        leftIcon={<FaTrash fontSize="16px" />}
+                        onClick={handleDelete}
+                      >
+                       Delete Thread
+                      </Button>
+                    </MenuItem>
+                  </MenuList>
+                </Portal>
+              </Menu>
 
-          <Menu>
-            <MenuButton position={"absolute"} top={2} right={2} variant="ghost">
-              <IconButton variant={"ghost"} icon={<MdOutlineMoreHoriz />} />
-            </MenuButton>
-            <Portal>
-              <MenuList>
-                <MenuItem p={0} m={0}>
-                  <Button
-                 
-                    variant=""
-                    fontSize="sm"
-                    fontWeight={"sm"}
-                    leftIcon={<FaTrash fontSize="16px" />}
-                    onClick={handleDelete}
-                  >
-                   Delete Thread
-                  </Button>
-                </MenuItem>
-              </MenuList>
-            </Portal>
-          </Menu>
+              ) :" "
+            }
+         
+
+
         </Box>
       </Card>
     </>

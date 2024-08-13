@@ -11,6 +11,7 @@ import StaticNavbarProfile from "../components/navbar/StaticNavbarProfile";
 import { useAuth } from "../auth/AuthContext";
 import loadingAnimation from "../lottie/loading.json"
 import {motion} from "framer-motion"
+import { Text } from "@chakra-ui/react";
 
 function Profile() {
   const threads = useSelector((state) => state.ThreadsReducer.getThreadResult);
@@ -49,7 +50,7 @@ function Profile() {
           )}
          
           <Jumbotron user={user} />
-          {sortedThreads.length > 0 ? (
+          {sortedThreads ? (
             sortedThreads.map((thread, index) => (
               <motion.div
               initial={{ y: -50, opacity: 0 }}

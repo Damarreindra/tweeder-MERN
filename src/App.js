@@ -18,11 +18,11 @@ function App() {
         <Routes>
         {/* <Route element={<ProtectedRoute />}></ */}
           
-          {/* <Route element={<UnProtectedRoute/>}> */}
+          <Route element={<UnProtectedRoute/>}>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<LandingPage />} />
-          {/* </Route> */}
+          </Route>
           <Route element={<ProtectedRoute />}>
             <Route path="/home" element={<Home />} />
             <Route path="/status/:uid" element={<DetailPost />} />

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Box, useToast } from '@chakra-ui/react';
 
 const AuthContext = createContext();
 
@@ -10,6 +11,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate()
+  const toast = useToast()
 
   
   useEffect(() => {
@@ -47,7 +49,14 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('uid', res.data.user.id)
       window.location.replace('/home')
     }catch(err){
-      console.error(err)
+       toast({
+        position: 'bottom-right',
+        render: () => (
+          <Box color='white' p={3} bg='red.500'>
+            {err.response?.data?.message || 'An unexpected error occurred'}
+          </Box>
+        ),
+      })
     }
   }
 
