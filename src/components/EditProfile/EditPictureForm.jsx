@@ -75,7 +75,7 @@ function EditPictureForm() {
       }
 
       await axios.patch(
-        "http://localhost:3000/user",
+        "https://betweeder-production.up.railway.app/user",
         { photoUrl: profileURL, displayName: name },
         {
           headers: {
